@@ -1,12 +1,10 @@
 package perri.practice.entities;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+@Entity
 public class Evento {
     @Id
     @GeneratedValue
@@ -81,5 +79,5 @@ public class Evento {
     public void setMaxPartecipanti(long maxPartecipanti) {
         this.maxPartecipanti = maxPartecipanti;
     }
-    
+
 }

@@ -21,7 +21,7 @@ public class EventoDAO {
 
         tx.commit();
 
-        System.out.println("EVENTO " + evento.getTitolo() + "SALVATO CORRETTAMENTE");
+        System.out.println("EVENTO " + evento.getTitolo() + " SALVATO CORRETTAMENTE");
     }
 
     public Evento getById(long id) {
@@ -41,6 +41,6 @@ public class EventoDAO {
 
         tx.commit();
 
-        System.out.println("EVENTO " + trovato.getTitolo() + "ELIMINATO CON SUCCESSO");
+        System.out.println("EVENTO " + trovato.getTitolo() + " ELIMINATO CON SUCCESSO");
     }
 }

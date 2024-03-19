@@ -5,9 +5,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import perri.practice.dao.EventoDAO;
 import perri.practice.entities.Evento;
-import perri.practice.entities.EventoType;
+import perri.practice.exceptions.NotFoundException;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Application {
@@ -19,14 +18,24 @@ public class Application {
 
         EntityManager em = emFactory.createEntityManager();
         EventoDAO eventoDao = new EventoDAO(em);
-
-        Evento test = new Evento("concerto di capodanno"
-                , LocalDate.of(2024, 04, 26)
-                , "concerto di fine anno in onore di Albano", 80000, EventoType.PUBBLICO);
+//
+//        Evento test = new Evento("stadio"
+//                , LocalDate.of(2024, 7, 18)
+//                , "ffknknknnkn", 10, EventoType.PRIVATO);
 
         System.out.println("Hello World!");
 
-        eventoDao.save(test);
+//        eventoDao.save(test);
+
+        Evento trova = null;
+        try {
+            trova = eventoDao.getById(11);
+        } catch (NotFoundException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println(trova.getTitolo());
+        }
+
         em.close();
         emFactory.close();
         sc.close();
