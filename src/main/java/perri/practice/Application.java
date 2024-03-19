@@ -29,7 +29,9 @@ public class Application {
 
         Evento trova = null;
         try {
-            trova = eventoDao.getById(11);
+            System.out.println("----------------------- INSERISCI UN ID PER CERCARE 1 EVENTO NEL DATABASE ----------------------------");
+            int id = Integer.parseInt(sc.nextLine());
+            trova = eventoDao.getById(id);
         } catch (NotFoundException e) {
             System.out.println(e.getMessage());
         } finally {
