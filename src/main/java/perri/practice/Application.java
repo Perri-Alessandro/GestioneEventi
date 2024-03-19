@@ -23,19 +23,30 @@ public class Application {
 //                , LocalDate.of(2024, 7, 18)
 //                , "ffknknknnkn", 10, EventoType.PRIVATO);
 
-        System.out.println("Hello World!");
+//        System.out.println("Hello World!");
 
 //        eventoDao.save(test);
 
-        Evento trova = null;
+//        Evento trova = null;
+//        try {
+//            System.out.println("----------------------- INSERISCI 1 ID PER CERCARE 1 EVENTO NEL DATABASE ----------------------------");
+//            int id = Integer.parseInt(sc.nextLine());
+//            trova = eventoDao.getById(id);
+//        } catch (NotFoundException e) {
+//            System.out.println(e.getMessage());
+//        } finally {
+//            System.out.println(trova.getTitolo());
+//        }
+
+        Evento cancella = null;
         try {
-            System.out.println("----------------------- INSERISCI UN ID PER CERCARE 1 EVENTO NEL DATABASE ----------------------------");
+            System.out.println("------------------------------ INSERISCI L'ID DI ELEMENTO DA ELIMINARE ----------------------------------");
             int id = Integer.parseInt(sc.nextLine());
-            trova = eventoDao.getById(id);
+            eventoDao.delete(id);
         } catch (NotFoundException e) {
             System.out.println(e.getMessage());
         } finally {
-            System.out.println(trova.getTitolo());
+            System.out.println(cancella.getTitolo());
         }
 
         em.close();
